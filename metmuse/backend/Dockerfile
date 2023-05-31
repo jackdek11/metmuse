@@ -4,7 +4,11 @@ FROM python:3.10-alpine
 # Set working directory to /code/
 WORKDIR /code
 
-ENV PATH /home/root/.local/bin:${PATH}
+# Set up environment
+ENV PATH=${PATH}:/root/.local/bin
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND='noninteractive'
 
 # Install requirements
 COPY requirements.txt /code/requirements.txt
