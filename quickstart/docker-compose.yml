@@ -1,0 +1,23 @@
+version: "3.2"
+
+services:
+
+  backend:
+    build: ../metmuse/backend
+    container_name: metmuse-backend
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - mmr
+  
+  metmuse:
+    build: ../metmuse
+    container_name: metmuse-frontend
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - mmr
+
+
+networks:
+  mmr:
