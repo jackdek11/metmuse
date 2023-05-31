@@ -3,6 +3,9 @@
 __pycache__
 venv/
 # Logs
+
+db.sqlite3
+
 logs
 *.log
 npm-debug.log*
