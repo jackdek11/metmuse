@@ -1,23 +1,43 @@
 <template>
-    <div class="display">
-      <img v-bind:src=currentPicture.url v-if="currentPicture" style="object-fit: cover; height: 100%;">
+  <div class="display" @click="pauseTimer">
+    <div class="image-container" :class="{ 'paused': timerPaused }" style="object-fit: cover; height: 100%;">
+      <img :src="currentPicture.url" v-if="currentPicture" style="object-fit: cover; height: 100%;">
     </div>
+    <!-- <div class="overlay" v-if="timerPaused">
+        <div class="dialog">
+          <PictureDetails :picture="currentPicture"></PictureDetails>
+        </div>
+      </div> -->
+  </div>
 </template>
 
 <script>
 import photosMixin from '@/mixins/calls'
+//import PictureDetails from './components/PictureDetails.vue';
 
 export default {
   name: 'App',
+
+  components: {
+    //PictureDetails,
+  },
+
   methods: {
     async fillPhotos() {
       try{
         let pictures = await photosMixin.getPhotos(this.page);
         this.pictures = pictures.data.results;
         this.currentPicture = this.pictures[this.index];
+        this.network_errors = 0;
       } catch (e) {
         this.page = 1;
-        this.fillPhotos();
+        this.network_errors++;
+        if (this.network_errors < 3){
+          setTimeout(() => {
+            this.fillPhotos();
+        }, 600)
+
+        }
       }
     },
     setNextPicture() {
@@ -30,20 +50,30 @@ export default {
       }
     },
     async countDownTimer() {
-      if(this.countDown > 0) {
-        setTimeout(() => {
-          this.countDown -= 1;
-          this.countDownTimer();
-        }, 600)
-      } else {
-        setTimeout(async () => {
+    if (this.countDown > 0 && !this.timerPaused) {
+      setTimeout(() => {
+        this.countDown -= 1;
+        this.countDownTimer();
+      }, 600);
+    } else {
+      setTimeout(async () => {
+        if (!this.timerPaused) {
           this.setNextPicture();
           this.currentPicture = this.pictures[this.index];
           this.countDown = 10;
           this.countDownTimer();
-        }, 600)
-      }
+        }
+      }, 600);
     }
+  },
+  pauseTimer() {
+    if (!this.timerPaused){
+      this.timerPaused = true;
+    } else {
+      this.timerPaused = false;
+      this.countDownTimer();
+    }
+  },
   },
 
   data() {
@@ -52,7 +82,9 @@ export default {
       pictures: [],
       index: 0,
       page: 1,
-      currentPicture: null
+      currentPicture: null,
+      network_errors: 0,
+      timerPaused: false,
     }
   },
 
@@ -93,4 +125,9 @@ export default {
 .v-leave-to {
   opacity: 0;
 }
+
+.overlay {
+  position: relative;
+}
+
 </style>
