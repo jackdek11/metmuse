@@ -9,7 +9,6 @@ export default class photosMixin {
             );
             return response;
         } catch (e){
-            console.log("oop");
             return {}
         }
         
