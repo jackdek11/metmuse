@@ -1,1 +1,2 @@
-docker-compose up --build backend
+docker-compose down --rem
+docker-compose up --build
