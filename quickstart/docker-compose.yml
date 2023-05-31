@@ -5,10 +5,7 @@ services:
   backend:
     build: ../metmuse/backend
     container_name: metmuse-backend
-    ports:
-      - "127.0.0.1:8000:8000"
-    networks:
-      - mmr
+    network_mode: 'host'
   
   metmuse:
     build: ../metmuse
