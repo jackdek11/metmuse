@@ -11,6 +11,9 @@ services:
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-default-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-defaultadminpassword}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-defaultAdmin@cannotexist.doesnotexist}
 
   rq-image-finder:
     build: ../metmuse/backend
