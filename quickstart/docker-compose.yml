@@ -15,10 +15,10 @@ services:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-defaultadminpassword}
       - ADMIN_EMAIL=${ADMIN_EMAIL:-defaultAdmin@cannotexist.doesnotexist}
 
-  rq-image-finder:
+  rq-worker:
     build: ../metmuse/backend
-    container_name: rq-image-finder
-    entrypoint: /bin/sh -c 'python3 /code/manage.py rqworker image-finder'
+    container_name: rq-worker
+    entrypoint: /bin/sh -c 'python3 /code/manage.py rqworker image-finder --with-scheduler'
     volumes:
       - media_media:/code/media
     environment:
@@ -28,6 +28,18 @@ services:
     depends_on:
       redis:
         condition: service_healthy
+
+  rq-scheduler:
+    build: ../metmuse/backend
+    container_name: rq-scheduler
+    entrypoint: /bin/sh -c 'python3 /code/manage.py rqscheduler --queue image-finder'
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
+      - REDIS_HOST=127.0.0.1
   
   renderer:
     build: renderer
