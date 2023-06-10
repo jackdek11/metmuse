@@ -103,6 +103,21 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
 
+# Redis and RQ workers
+REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
+REDIS_PORT = os.environ.get('REDIS_PORT', 6379)
+REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', 'nom' * 20)
+
+RQ_QUEUES = {
+    'emailer_and_files': {
+        'HOST': REDIS_HOST,
+        'PORT': REDIS_PORT,
+        'DB': 0,
+        'PASSWORD': REDIS_PASSWORD,
+        'DEFAULT_TIMEOUT': os.getenv('REDIS_RQ_TIMEOUT', 360),
+    },
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
