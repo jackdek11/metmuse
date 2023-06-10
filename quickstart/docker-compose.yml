@@ -9,7 +9,7 @@ services:
     volumes:
       - static_volume:/code/static
     environment:
-      - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123WillNeverDefault}
+      - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
 
   rq-image-finder:
     build: ../metmuse/backend
@@ -20,7 +20,7 @@ services:
   
   renderer:
     build: renderer
-    container_name: statics
+    container_name: renderer
     volumes:
       - media_media:/src/media
       - static_volume:/src/static
