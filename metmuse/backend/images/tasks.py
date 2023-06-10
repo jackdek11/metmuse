@@ -4,11 +4,13 @@ import uuid
 
 from django.core.files.temp import NamedTemporaryFile
 from django.core import files
+from django_rq.decorators import job
 
 from images.models import Image
 
 
-def handle():
+@job('image-finder')
+def find_images():
     _max = 2
     for _id in range(37, 80):
         if _max < 0:
