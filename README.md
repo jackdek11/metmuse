@@ -8,3 +8,12 @@
 - Run `./run.sh
 
 This will build and bring up the BE and FE services containers.
+
+Add these variables to your environment
+```shell
+export SECRET_KEY=
+export REDIS_PASSWORD=
+export ADMIN_USERNAME=
+export ADMIN_PASSWORD=
+export ADMIN_EMAIL=
+```
