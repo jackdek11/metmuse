@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 
     'corsheaders',
 
-    'images.apps.ImagesConfig'
+    'images.apps.ImagesConfig',
+    "django_rq",
 ]
 
 MIDDLEWARE = [
@@ -109,9 +110,10 @@ REDIS_PORT = os.environ.get('REDIS_PORT', 6379)
 REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', 'nom' * 20)
 
 RQ_QUEUES = {
-    'emailer_and_files': {
+    'image-finder': {
         'HOST': REDIS_HOST,
         'PORT': REDIS_PORT,
+        "URL": os.getenv("REDISTOGO_URL", f"redis://{REDIS_HOST}:{REDIS_PORT}"),  # If you're
         'DB': 0,
         'PASSWORD': REDIS_PASSWORD,
         'DEFAULT_TIMEOUT': os.getenv('REDIS_RQ_TIMEOUT', 360),
