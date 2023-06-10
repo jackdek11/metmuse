@@ -1,5 +1,4 @@
 sigterm_handler() { 
-    echo "here"
     tput reset
     docker compose down --remove-orphans
     exit 1
@@ -16,17 +15,18 @@ docker compose down --remove-orphans
     NC='\033[0m'
     echo ""
     echo ""
+    echo "     The services are up!"
     echo ""
-    echo "     Services are up!"
     echo "     To visit the website, please navigate to:"
-
-    echo ""
     echo ""
     printf "          * ${BLUE}$(tput bold)http://localhost:8080${NC}\n"
-    printf "          * ${BLUE}$(tput bold)http://127.0.0.1:8080${NC}"
     echo ""
+    echo ""
+    echo "     To view the admin panel, please navigate to:"
+    echo ""
+    printf "          * ${BLUE}$(tput bold)http://localhost:8000/admin${NC}\n"
     echo ""
     echo ""
     echo ""
     read
-} 
+}
