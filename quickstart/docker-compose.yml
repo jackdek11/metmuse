@@ -2,12 +2,32 @@ version: "3.2"
 
 services:
 
-  backend:
+  backend-api:
     build: ../metmuse/backend
     container_name: metmuse-backend
     network_mode: 'host'
+    volumes:
+      - static_volume:/code/static
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123WillNeverDefault}
+
+  rq-image-finder:
+    build: ../metmuse/backend
+    container_name: rq-image-finder
+    entrypoint: /bin/sh -c 'python3 /code/manage.py rqworker image-finder'
+    volumes:
+      - media_media:/code/media
+  
+  renderer:
+    build: renderer
+    container_name: statics
+    volumes:
+      - media_media:/src/media
+      - static_volume:/src/static
+    ports:
+      - "127.0.0.1:80:80"
+    networks:
+      - mmr
   
   metmuse:
     build: ../metmuse
@@ -20,3 +40,6 @@ services:
 
 networks:
   mmr:
+volumes:
+  static_volume:
+  media_media:
