@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Image(models.Model):
+    file = models.FileField(null=True)
     ref = models.IntegerField(unique=True, primary_key=True)
     url = models.URLField()
     name = models.TextField(blank=True, null=True)
