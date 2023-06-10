@@ -6,6 +6,8 @@ services:
     build: ../metmuse/backend
     container_name: metmuse-backend
     network_mode: 'host'
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123WillNeverDefault}
   
   metmuse:
     build: ../metmuse
