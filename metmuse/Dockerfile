@@ -19,4 +19,17 @@ COPY babel.config.js /app
 COPY jsconfig.json /app
 COPY vue.config.js /app
 
-CMD ["npm", "run", "serve"]
+RUN npm run build
+
+FROM nginx:stable-alpine as production-stage
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+
+COPY --from=deps /app/dist /usr/share/nginx/html
+
+RUN nginx -t
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
