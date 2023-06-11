@@ -1,0 +1,135 @@
+[
+  {
+    "model": "scheduling.department",
+    "pk": 1,
+    "fields": {
+      "name": "American Decorative Arts"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 3,
+    "fields": {
+      "name": "Ancient Near Eastern Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 4,
+    "fields": {
+      "name": "Arms and Armor"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 5,
+    "fields": {
+      "name": "Arts of Africa, Oceania, and the Americas"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 6,
+    "fields": {
+      "name": "Asian Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 7,
+    "fields": {
+      "name": "The Cloisters"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 8,
+    "fields": {
+      "name": "The Costume Institute"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 9,
+    "fields": {
+      "name": "Drawings and Prints"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 10,
+    "fields": {
+      "name": "Egyptian Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 11,
+    "fields": {
+      "name": "European Paintings"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 12,
+    "fields": {
+      "name": "European Sculpture and Decorative Arts"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 13,
+    "fields": {
+      "name": "Greek and Roman Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 14,
+    "fields": {
+      "name": "Islamic Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 15,
+    "fields": {
+      "name": "The Robert Lehman Collection"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 16,
+    "fields": {
+      "name": "The Libraries"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 17,
+    "fields": {
+      "name": "Medieval Art"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 18,
+    "fields": {
+      "name": "Musical Instruments"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 19,
+    "fields": {
+      "name": "Photographs"
+    }
+  },
+  {
+    "model": "scheduling.department",
+    "pk": 21,
+    "fields": {
+      "name": "Modern Art"
+    }
+  }
+]
