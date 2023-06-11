@@ -18,6 +18,7 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('django_rq.urls')),
     re_path(r'^api/v1/', include([
         path('', include('images.urls')),
     ])),
