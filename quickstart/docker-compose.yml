@@ -42,17 +42,6 @@ services:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
       - REDIS_HOST=127.0.0.1
-  
-  renderer:
-    build: renderer
-    container_name: renderer
-    volumes:
-      - media_media:/src/media
-      - static_volume:/src/static
-    ports:
-      - "127.0.0.1:80:80"
-    networks:
-      - mmr
 
   redis:
     container_name: redis
@@ -80,9 +69,12 @@ services:
     build: ../metmuse
     container_name: metmuse-frontend
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8080:80"
     networks:
       - mmr
+    volumes:
+      - media_media:/mnt/media
+      - static_volume:/mnt/static
 
 
 networks:
