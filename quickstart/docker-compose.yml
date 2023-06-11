@@ -9,8 +9,6 @@ services:
       - "127.0.0.1:8000:8000"
     networks:
       - mmr
-    volumes:
-      - static_volume:/code/static
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
@@ -114,12 +112,10 @@ services:
       - mmr
     volumes:
       - media_media:/mnt/media
-      - static_volume:/mnt/static
 
 
 networks:
   mmr:
 volumes:
-  static_volume:
   media_media:
   metmuse_pgdata:
