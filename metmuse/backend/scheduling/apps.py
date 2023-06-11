@@ -12,7 +12,7 @@ class SchedulingConfig(AppConfig):
     def ready(self):
         if settings.RQ_SCHEDULING_INSTANCE:
             import django_rq
-            from images.tasks import find_images
+            from scheduling.tasks import find_images
 
             scheduler = django_rq.get_scheduler('image-finder')
 
