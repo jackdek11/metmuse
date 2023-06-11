@@ -8,5 +8,6 @@
 
 python3 manage.py migrate
 python3 manage.py add_admin
+python3 manage.py collectstatic --noinput
 python3 manage.py loaddata fixtures/*
-python3 -m uvicorn backend.asgi:application
+python3 -m uvicorn backend.asgi:application --host 0.0.0.0
