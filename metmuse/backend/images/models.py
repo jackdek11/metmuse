@@ -12,6 +12,9 @@ class Image(models.Model):
     country = models.TextField(blank=True, null=True)
     region = models.TextField(blank=True, null=True)
 
+    class Meta:
+        db_table = 'metmuse.images'
 
-class Blacklist(models.Model):
-    ref = models.IntegerField(unique=True, primary_key=True)
+    def __str__(self):
+        return self.name
+

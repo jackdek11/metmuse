@@ -16,3 +16,9 @@ class FetchableImages(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     object_id = models.IntegerField()
     status = models.IntegerField(choices=FetchStatus.choices, default=FetchStatus.NEEDS_FETCHING)
+
+    class Meta:
+        db_table = 'metmuse.fetchable_images'
+
+    def __str__(self):
+        return self.object_id
