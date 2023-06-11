@@ -17,7 +17,6 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 # Copy over chrome_manager and logging config
 COPY backend/ /code/backend/
 COPY images/ /code/images/
-COPY fixtures.json /code/fixtures.json
 COPY manage.py /code/manage.py
 COPY startup.sh /code
 
