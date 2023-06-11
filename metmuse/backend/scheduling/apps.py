@@ -20,4 +20,10 @@ class SchedulingConfig(AppConfig):
             for job in scheduler.get_jobs():
                 job.delete()
 
-            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=settings.RQ_SCHEDULING_INTERVAL)
+            # Schedule to get 6 more images every minute
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)

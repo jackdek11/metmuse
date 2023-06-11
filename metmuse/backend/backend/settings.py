@@ -132,7 +132,6 @@ RQ_QUEUES = {
 }
 
 RQ_SCHEDULING_INSTANCE = os.getenv('RQ_SCHEDULING_INSTANCE', False)
-RQ_SCHEDULING_INTERVAL = os.getenv('RQ_SCHEDULING_INTERVAL', 1)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
