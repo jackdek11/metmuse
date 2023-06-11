@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # **************************************************************
 # Authored by Jack de Kock, https://github.com/jackdek11
