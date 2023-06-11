@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'images.apps.ImagesConfig',
+    'scheduling.apps.SchedulingConfig',
     "django_rq",
 ]
 
@@ -88,10 +89,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Database
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('POSTGRES_NAME', 'metmuse'),
+        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
+        'PORT': os.environ.get('POSTGRES_PORT', 5432),
     }
 }
 
@@ -109,7 +116,7 @@ REST_FRAMEWORK = {
 }
 
 # Redis and RQ workers
-REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
+REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
 REDIS_PORT = os.environ.get('REDIS_PORT', 6379)
 REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD', 'nom' * 20)
 
@@ -123,6 +130,9 @@ RQ_QUEUES = {
         'DEFAULT_TIMEOUT': os.getenv('REDIS_RQ_TIMEOUT', 360),
     },
 }
+
+RQ_SCHEDULING_INSTANCE = os.getenv('RQ_SCHEDULING_INSTANCE', False)
+RQ_SCHEDULING_INTERVAL = os.getenv('RQ_SCHEDULING_INTERVAL', 1)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
