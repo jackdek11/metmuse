@@ -2,46 +2,86 @@ version: "3.2"
 
 services:
 
-  backend-api:
+  backend:
     build: ../metmuse/backend
-    container_name: metmuse-backend
-    network_mode: 'host'
+    container_name: backend
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - mmr
     volumes:
       - static_volume:/code/static
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-mySuperSecRetp0sstgresp@ssword}
       - ADMIN_USERNAME=${ADMIN_USERNAME:-default-admin}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-defaultadminpassword}
       - ADMIN_EMAIL=${ADMIN_EMAIL:-defaultAdmin@cannotexist.doesnotexist}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    container_name: db
+    image: postgres:15-alpine
+    restart: always
+    networks:
+      - mmr
+    ports:
+     - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-mySuperSecRetp0sstgresp@ssword}
+      - POSTGRES_DB=metmuse
+      - POSTGRES_USER=postgres
+      - PGDATA=/var/lib/postgresql/data/teamfu_data
+    volumes:
+       - metmuse_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
 
   rq-worker:
     build: ../metmuse/backend
     container_name: rq-worker
-    network_mode: 'host'
+    networks:
+      - mmr
     entrypoint: /bin/sh -c 'python3 /code/manage.py rqworker image-finder --with-scheduler'
     volumes:
       - media_media:/code/media
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
-      - REDIS_HOST=127.0.0.1
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-mySuperSecRetp0sstgresp@ssword}
     depends_on:
       redis:
+        condition: service_healthy
+      db:
         condition: service_healthy
 
   rq-scheduler:
     build: ../metmuse/backend
     container_name: rq-scheduler
-    network_mode: 'host'
+    networks:
+      - mmr
     entrypoint: /bin/sh -c 'python3 /code/manage.py rqscheduler --queue image-finder'
     depends_on:
       redis:
         condition: service_healthy
+      db:
+        condition: service_healthy
     environment:
       - SECRET_KEY=${SECRET_KEY:-mysupersecretkey123ShouldNeverDefault}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
-      - REDIS_HOST=127.0.0.1
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-mySuperSecRetp0sstgresp@ssword}
+      - RQ_SCHEDULING_INSTANCE=True
 
   redis:
     container_name: redis
@@ -65,9 +105,9 @@ services:
         soft: 20000
         hard: 40000
 
-  metmuse:
+  frontend:
     build: ../metmuse
-    container_name: metmuse-frontend
+    container_name: frontend
     ports:
       - "127.0.0.1:8080:80"
     networks:
@@ -82,3 +122,4 @@ networks:
 volumes:
   static_volume:
   media_media:
+  metmuse_pgdata:
