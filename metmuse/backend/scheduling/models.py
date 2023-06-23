@@ -19,6 +19,7 @@ class FetchableImages(models.Model):
 
     class Meta:
         db_table = 'metmuse.fetchable_images'
+        verbose_name_plural = "Fetchable Images"
 
     def __str__(self):
         return self.object_id
