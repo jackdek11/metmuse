@@ -88,6 +88,8 @@ services:
     # TODO: Re-add requirepass. Priority low, as this service is currently not exposed or reachable
     # command: >
     #   --requirepass ${REDIS_PASSWORD:-mySuperSecRetrEd1sp@ssword}
+    volumes:
+       - metmuse_redisdata:/var/lib/redis/dump.rdb
     networks:
       - mmr
     ports:
@@ -119,3 +121,4 @@ networks:
 volumes:
   media_media:
   metmuse_pgdata:
+  metmuse_redisdata:
