@@ -27,3 +27,6 @@ class FetchableImagesAdmin(admin.ModelAdmin):
             case FetchStatus.NEEDS_FETCHING:
                 return "background-color:grey"
 
+    def get_queryset(self, request):
+        return super().get_queryset(request).order_by('status')
+
