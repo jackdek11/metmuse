@@ -16,5 +16,5 @@ class Image(models.Model):
         db_table = 'metmuse.images'
 
     def __str__(self):
-        return self.name
+        return str(self.ref)
 
