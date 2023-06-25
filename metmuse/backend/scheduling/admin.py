@@ -1,19 +1,34 @@
 from django.contrib import admin
 from django_rq.admin import QueueAdmin
 from django_rq.models import Queue
+from django.db import models
 from django.utils.html import mark_safe
+from django_json_widget.widgets import JSONEditorWidget
+from django.urls import reverse
 
-from scheduling.models import FetchableImage, FetchStatus
+from scheduling.models import FetchableImage, SchedulingError
+from scheduling.enums import FetchStatus
 
 admin.site.register(Queue, QueueAdmin)
 
 
 @admin.register(FetchableImage)
 class FetchableImageAdmin(admin.ModelAdmin):
-    list_display = ('object_id', 'status', 'indicator')
+    list_display = ('object_id', 'status', 'last_response')
+    list_filter = ("status",)
 
-    def indicator(self, obj):
-        return mark_safe(f'<div style="padding:10px;{self.get_color(obj.status)}"></div>')
+    @staticmethod
+    def last_response(obj):
+        try:
+            last_response = obj.schedulingerror_set.last()
+            if not last_response:
+                return None
+            detail = f"[{last_response.created_on}]"
+            return mark_safe(
+                f'<a href="{reverse("admin:scheduling_schedulingerror_change", args=(last_response.id,))}">{detail}</a>'
+            )
+        except AttributeError:
+            return None
 
     @staticmethod
     def get_color(status: FetchStatus):
@@ -27,6 +42,11 @@ class FetchableImageAdmin(admin.ModelAdmin):
             case FetchStatus.NEEDS_FETCHING:
                 return "background-color:grey"
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).order_by('status')
 
+@admin.register(SchedulingError)
+class SchedulingErrorAdmin(admin.ModelAdmin):
+    list_display = ('id', 'created_on', 'fetchable_image', 'retries')
+    formfield_overrides = {
+        # fields.JSONField: {'widget': JSONEditorWidget}, # if django < 3.1
+        models.JSONField: {'widget': JSONEditorWidget},
+    }

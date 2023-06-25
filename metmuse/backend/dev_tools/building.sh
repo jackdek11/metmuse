@@ -8,7 +8,7 @@
 
 cd ../../../quickstart/
 docker-compose down --remove-orphans
-docker-compose up -d db redis rq-worker rq-scheduler
+docker-compose up -d db redis
 cd ../metmuse/backend/
 python3 manage.py migrate
 python3 manage.py add_admin

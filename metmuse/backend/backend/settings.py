@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
     'scheduling.apps.SchedulingConfig',
     "django_rq",
+    'django_json_widget',
 ]
 
 MIDDLEWARE = [
