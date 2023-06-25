@@ -9,7 +9,7 @@ from django_rq.decorators import job
 
 from images.models import Image
 
-from scheduling.models import FetchableImages, FetchStatus
+from scheduling.models import FetchableImage, FetchStatus
 from scheduling.utils import find_and_lock_image
 
 IMAGE_ENDPOINT = "https://collectionapi.metmuseum.org/public/collection/v1/objects/%s"
@@ -19,29 +19,36 @@ logger = logging.getLogger('default')
 
 @job('image-finder')
 def find_images():
-    next_image: FetchableImages = find_and_lock_image()
-    if not next_image:
-        logger.warning("No more images available")
-        return
-    obj = json.loads(requests.get(IMAGE_ENDPOINT % next_image.object_id).text)
-    if obj.get('primaryImage'):
-        response = requests.get(obj.get('primaryImage'), allow_redirects=True, stream=True)
-        file_type = response.headers.get('Content-Type', default='image/jpeg').split('/')[-1].lower().strip()
-        image_temp_file = NamedTemporaryFile(delete=True)
-        image_temp_file.write(response.content)
-        temp_file = files.File(image_temp_file, name=f"{uuid.uuid4()}.{file_type}")
-        Image.objects.create(
-            file=temp_file, ref=int(next_image.object_id), url=obj.get('primaryImage'), name=obj.get('name'),
-            country=obj.get('country'), artistDisplayName=obj.get('artistDisplayName'),
-            artistNationality=obj.get('artistNationality'), region=obj.get('region'),
-        )
-        image_temp_file.flush()
-        temp_file.flush()
-        next_image.status = FetchStatus.FETCHED
+    obj, next_image = None, None
+    try:
+        next_image: FetchableImage = find_and_lock_image()
+        if not next_image:
+            logger.warning("No more images available")
+            return
+        obj = json.loads(requests.get(IMAGE_ENDPOINT % next_image.object_id).text)
+        if obj.get('primaryImage'):
+            response = requests.get(obj.get('primaryImage'), allow_redirects=True, stream=True)
+            file_type = response.headers.get('Content-Type', default='image/jpeg').split('/')[-1].lower().strip()
+            image_temp_file = NamedTemporaryFile(delete=True)
+            image_temp_file.write(response.content)
+            temp_file = files.File(image_temp_file, name=f"{uuid.uuid4()}.{file_type}")
+            Image.objects.create(
+                file=temp_file, fetchable_image=next_image, url=obj.get('primaryImage'), name=obj.get('name'),
+                country=obj.get('country'), artistDisplayName=obj.get('artistDisplayName'),
+                artistNationality=obj.get('artistNationality'), region=obj.get('region'),
+            )
+            image_temp_file.flush()
+            temp_file.flush()
+            next_image.status = FetchStatus.FETCHED
+            next_image.save(update_fields=['status'])
+            return
+    except Exception as e:
+        logger.error(e)
+    if obj:
+        print(obj)
+        logger.info(obj)
+    if next_image:
+        logger.warning(f"API response for {next_image} did not return an image")
+        next_image.status = FetchStatus.ERROR
         next_image.save(update_fields=['status'])
-        return
-    logger.warning(f"API response for {next_image} did not return an image")
-    logger.debug(obj)
-    next_image.status = FetchStatus.ERROR
-    next_image.save(update_fields=['status'])
 
