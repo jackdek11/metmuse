@@ -3,7 +3,7 @@ from django.db import models
 
 class Image(models.Model):
     file = models.FileField(null=True)
-    ref = models.IntegerField(unique=True, primary_key=True)
+    fetchable_image = models.OneToOneField('scheduling.FetchableImages', on_delete=models.CASCADE, primary_key=True)
     url = models.URLField()
     name = models.TextField(blank=True, null=True)
     artistDisplayName = models.TextField(blank=True, null=True)
@@ -16,5 +16,5 @@ class Image(models.Model):
         db_table = 'metmuse.images'
 
     def __str__(self):
-        return str(self.ref)
+        return str(self.name) or "No name found"
 
