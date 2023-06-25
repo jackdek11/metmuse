@@ -1,4 +1,5 @@
 import typing
+import logging
 
 from django.db import transaction
 
@@ -18,3 +19,5 @@ def find_and_lock_image() -> typing.Optional[FetchableImages]:
             to_fetch.status = FetchStatus.BUSY_FETCHING
             to_fetch.save(update_fields=['status'])
             return to_fetch
+        else:
+            logging.error("find_and_lock_image() could not find an image")
