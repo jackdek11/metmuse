@@ -1,4 +1,5 @@
 import datetime
+import time
 
 
 from django.apps import AppConfig
@@ -22,8 +23,13 @@ class SchedulingConfig(AppConfig):
 
             # Schedule to get 6 more images every minute
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            time.sleep(2)
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            time.sleep(2)
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            time.sleep(2)
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            time.sleep(2)
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)
+            time.sleep(2)
             scheduler.schedule(datetime.datetime.utcnow(), find_images, interval=1)

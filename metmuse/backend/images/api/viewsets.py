@@ -7,5 +7,5 @@ from images.models import Image
 
 class ImageViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
     permission_classes = (AllowAny,)
-    queryset = Image.objects.all().order_by('ref')
+    queryset = Image.objects.all().order_by('fetchable_image')
     serializer_class = ImageSerializer
