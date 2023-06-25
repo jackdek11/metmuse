@@ -19,6 +19,41 @@ docker compose down --remove-orphans
 {
     docker compose up --build -d 
     tput reset
+    # Stall user, allow for rq processes to start before navigating to FE
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "[INFO] Bringing serverices up"
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "[INFO] Services almost up ..."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    echo "."
+    sleep 0.75
+    tput reset
+    sleep 0.75
     BLUE='\033[0;34m'
     NC='\033[0m'
     echo ""
