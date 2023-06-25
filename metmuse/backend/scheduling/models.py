@@ -11,4 +11,4 @@ class FetchableImages(models.Model):
         verbose_name_plural = "Fetchable Images"
 
     def __str__(self):
-        return self.object_id
+        return str(self.object_id)
