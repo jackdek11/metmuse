@@ -1,7 +1,7 @@
 <template>
   <div class="display" @click="pauseTimer">
     <div class="image-container" :class="{ 'paused': timerPaused }" style="object-fit: cover; height: 100%;">
-      <img :src="currentPicture.url" v-if="currentPicture" style="object-fit: cover; height: 100%;">
+      <img :src="currentPicture.file" v-if="currentPicture" style="object-fit: cover; height: 100%;">
     </div>
     <!-- <div class="overlay" v-if="timerPaused">
         <div class="dialog">
