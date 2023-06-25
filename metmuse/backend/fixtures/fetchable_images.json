@@ -1,25 +1,9 @@
 [
   {
     "model": "scheduling.FetchableImage",
-    "pk": 1,
-    "fields": {
-      "object_id": 888598,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 2,
     "fields": {
       "object_id": 202614,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 3,
-    "fields": {
-      "object_id": 591841,
       "status": 4
     }
   },
@@ -52,14 +36,6 @@
     "pk": 7,
     "fields": {
       "object_id": 459209,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 8,
-    "fields": {
-      "object_id": 459196,
       "status": 4
     }
   },
@@ -161,81 +137,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 21,
-    "fields": {
-      "object_id": 272071,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 22,
-    "fields": {
-      "object_id": 769306,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 23,
     "fields": {
       "object_id": 459183,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 24,
-    "fields": {
-      "object_id": 829994,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 25,
-    "fields": {
-      "object_id": 829996,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 26,
-    "fields": {
-      "object_id": 829998,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 27,
-    "fields": {
-      "object_id": 829999,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 28,
-    "fields": {
-      "object_id": 830002,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 29,
-    "fields": {
-      "object_id": 830000,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 30,
-    "fields": {
-      "object_id": 829997,
       "status": 4
     }
   },
@@ -252,14 +156,6 @@
     "pk": 32,
     "fields": {
       "object_id": 459210,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 33,
-    "fields": {
-      "object_id": 14932,
       "status": 4
     }
   },
@@ -284,14 +180,6 @@
     "pk": 36,
     "fields": {
       "object_id": 11271,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 37,
-    "fields": {
-      "object_id": 11760,
       "status": 4
     }
   },
@@ -369,30 +257,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 47,
-    "fields": {
-      "object_id": 10571,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 48,
-    "fields": {
-      "object_id": 10409,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 49,
-    "fields": {
-      "object_id": 10403,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 50,
     "fields": {
       "object_id": 10956,
@@ -441,41 +305,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 56,
-    "fields": {
-      "object_id": 12774,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 57,
-    "fields": {
-      "object_id": 12078,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 58,
-    "fields": {
-      "object_id": 12116,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 59,
     "fields": {
       "object_id": 12544,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 60,
-    "fields": {
-      "object_id": 842089,
       "status": 4
     }
   },
@@ -500,14 +332,6 @@
     "pk": 63,
     "fields": {
       "object_id": 20615,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 64,
-    "fields": {
-      "object_id": 749370,
       "status": 4
     }
   },
@@ -609,22 +433,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 77,
-    "fields": {
-      "object_id": 852849,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 78,
-    "fields": {
-      "object_id": 12075,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 79,
     "fields": {
       "object_id": 337490,
@@ -641,49 +449,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 81,
-    "fields": {
-      "object_id": 12087,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 82,
-    "fields": {
-      "object_id": 12120,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 83,
     "fields": {
       "object_id": 14521,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 84,
-    "fields": {
-      "object_id": 267041,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 85,
-    "fields": {
-      "object_id": 19745,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 86,
-    "fields": {
-      "object_id": 20893,
       "status": 4
     }
   },
@@ -697,41 +465,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 88,
-    "fields": {
-      "object_id": 19294,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 89,
-    "fields": {
-      "object_id": 19255,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 90,
-    "fields": {
-      "object_id": 19356,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 91,
     "fields": {
       "object_id": 16577,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 92,
-    "fields": {
-      "object_id": 746422,
       "status": 4
     }
   },
@@ -745,49 +481,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 94,
-    "fields": {
-      "object_id": 751995,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 95,
     "fields": {
       "object_id": 760942,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 96,
-    "fields": {
-      "object_id": 755524,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 97,
-    "fields": {
-      "object_id": 700610,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 98,
-    "fields": {
-      "object_id": 16255,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 99,
-    "fields": {
-      "object_id": 834269,
       "status": 4
     }
   },
@@ -817,14 +513,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 103,
-    "fields": {
-      "object_id": 19256,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 104,
     "fields": {
       "object_id": 459137,
@@ -841,33 +529,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 106,
-    "fields": {
-      "object_id": 11667,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 107,
     "fields": {
       "object_id": 11985,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 108,
-    "fields": {
-      "object_id": 12457,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 109,
-    "fields": {
-      "object_id": 12138,
       "status": 4
     }
   },
@@ -889,38 +553,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 112,
-    "fields": {
-      "object_id": 857061,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 113,
-    "fields": {
-      "object_id": 857097,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 114,
-    "fields": {
-      "object_id": 857111,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 115,
-    "fields": {
-      "object_id": 857098,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 116,
     "fields": {
       "object_id": 813854,
@@ -932,22 +564,6 @@
     "pk": 117,
     "fields": {
       "object_id": 818177,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 118,
-    "fields": {
-      "object_id": 816793,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 119,
-    "fields": {
-      "object_id": 816792,
       "status": 4
     }
   },
@@ -972,14 +588,6 @@
     "pk": 122,
     "fields": {
       "object_id": 459189,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 123,
-    "fields": {
-      "object_id": 459242,
       "status": 4
     }
   },
@@ -1017,33 +625,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 128,
-    "fields": {
-      "object_id": 360255,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 129,
     "fields": {
       "object_id": 282756,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 130,
-    "fields": {
-      "object_id": 282740,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 131,
-    "fields": {
-      "object_id": 319872,
       "status": 4
     }
   },
@@ -1081,57 +665,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 136,
-    "fields": {
-      "object_id": 717548,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 137,
     "fields": {
       "object_id": 682014,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 138,
-    "fields": {
-      "object_id": 738758,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 139,
-    "fields": {
-      "object_id": 751532,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 140,
-    "fields": {
-      "object_id": 751528,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 141,
-    "fields": {
-      "object_id": 853952,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 142,
-    "fields": {
-      "object_id": 853953,
       "status": 4
     }
   },
@@ -1148,14 +684,6 @@
     "pk": 144,
     "fields": {
       "object_id": 193632,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 145,
-    "fields": {
-      "object_id": 284086,
       "status": 4
     }
   },
@@ -1193,41 +721,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 150,
-    "fields": {
-      "object_id": 267271,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 151,
-    "fields": {
-      "object_id": 267175,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 152,
-    "fields": {
-      "object_id": 267363,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 153,
     "fields": {
       "object_id": 282190,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 154,
-    "fields": {
-      "object_id": 282515,
       "status": 4
     }
   },
@@ -1265,41 +761,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 159,
-    "fields": {
-      "object_id": 282883,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 160,
     "fields": {
       "object_id": 283626,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 161,
-    "fields": {
-      "object_id": 283720,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 162,
-    "fields": {
-      "object_id": 284572,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 163,
-    "fields": {
-      "object_id": 284712,
       "status": 4
     }
   },
@@ -1313,25 +777,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 165,
-    "fields": {
-      "object_id": 281940,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 166,
     "fields": {
       "object_id": 282004,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 167,
-    "fields": {
-      "object_id": 281977,
       "status": 4
     }
   },
@@ -1353,22 +801,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 170,
-    "fields": {
-      "object_id": 285142,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 171,
-    "fields": {
-      "object_id": 271954,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 172,
     "fields": {
       "object_id": 437283,
@@ -1380,22 +812,6 @@
     "pk": 173,
     "fields": {
       "object_id": 337172,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 174,
-    "fields": {
-      "object_id": 266859,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 175,
-    "fields": {
-      "object_id": 337058,
       "status": 4
     }
   },
@@ -1425,33 +841,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 179,
-    "fields": {
-      "object_id": 310960,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 180,
     "fields": {
       "object_id": 334002,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 181,
-    "fields": {
-      "object_id": 889318,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 182,
-    "fields": {
-      "object_id": 889319,
       "status": 4
     }
   },
@@ -1497,25 +889,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 188,
-    "fields": {
-      "object_id": 352328,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 189,
     "fields": {
       "object_id": 354631,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 190,
-    "fields": {
-      "object_id": 354644,
       "status": 4
     }
   },
@@ -1545,22 +921,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 194,
-    "fields": {
-      "object_id": 283236,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 195,
-    "fields": {
-      "object_id": 291951,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 196,
     "fields": {
       "object_id": 337487,
@@ -1577,14 +937,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 198,
-    "fields": {
-      "object_id": 373894,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 199,
     "fields": {
       "object_id": 365017,
@@ -1593,41 +945,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 200,
-    "fields": {
-      "object_id": 265553,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 201,
-    "fields": {
-      "object_id": 265550,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 202,
     "fields": {
       "object_id": 265556,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 203,
-    "fields": {
-      "object_id": 265543,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 204,
-    "fields": {
-      "object_id": 265166,
       "status": 4
     }
   },
@@ -1649,30 +969,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 207,
-    "fields": {
-      "object_id": 266162,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 208,
-    "fields": {
-      "object_id": 266102,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 209,
-    "fields": {
-      "object_id": 266262,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 210,
     "fields": {
       "object_id": 266332,
@@ -1681,33 +977,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 211,
-    "fields": {
-      "object_id": 266349,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 212,
     "fields": {
       "object_id": 266284,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 213,
-    "fields": {
-      "object_id": 266199,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 214,
-    "fields": {
-      "object_id": 266427,
       "status": 4
     }
   },
@@ -1732,54 +1004,6 @@
     "pk": 217,
     "fields": {
       "object_id": 267891,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 218,
-    "fields": {
-      "object_id": 266746,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 219,
-    "fields": {
-      "object_id": 266853,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 220,
-    "fields": {
-      "object_id": 266784,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 221,
-    "fields": {
-      "object_id": 267748,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 222,
-    "fields": {
-      "object_id": 267717,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 223,
-    "fields": {
-      "object_id": 267757,
       "status": 4
     }
   },
@@ -1849,118 +1073,6 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 232,
-    "fields": {
-      "object_id": 266709,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 233,
-    "fields": {
-      "object_id": 267839,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 234,
-    "fields": {
-      "object_id": 267803,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 235,
-    "fields": {
-      "object_id": 267775,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 236,
-    "fields": {
-      "object_id": 267842,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 237,
-    "fields": {
-      "object_id": 459243,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 238,
-    "fields": {
-      "object_id": 459239,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 239,
-    "fields": {
-      "object_id": 459159,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 240,
-    "fields": {
-      "object_id": 889426,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 241,
-    "fields": {
-      "object_id": 889960,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 242,
-    "fields": {
-      "object_id": 889916,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 243,
-    "fields": {
-      "object_id": 889358,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 244,
-    "fields": {
-      "object_id": 890391,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 245,
-    "fields": {
-      "object_id": 889999,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 246,
     "fields": {
       "object_id": 192716,
@@ -1969,89 +1081,9 @@
   },
   {
     "model": "scheduling.FetchableImage",
-    "pk": 247,
-    "fields": {
-      "object_id": 889335,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 248,
-    "fields": {
-      "object_id": 889323,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 249,
-    "fields": {
-      "object_id": 481231,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 250,
-    "fields": {
-      "object_id": 266850,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 251,
-    "fields": {
-      "object_id": 266537,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 252,
-    "fields": {
-      "object_id": 266855,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 253,
-    "fields": {
-      "object_id": 365807,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 254,
-    "fields": {
-      "object_id": 337069,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 255,
-    "fields": {
-      "object_id": 337068,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
     "pk": 256,
     "fields": {
       "object_id": 337489,
-      "status": 4
-    }
-  },
-  {
-    "model": "scheduling.FetchableImage",
-    "pk": 257,
-    "fields": {
-      "object_id": 483866,
       "status": 4
     }
   },
