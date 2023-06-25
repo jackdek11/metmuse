@@ -9,7 +9,8 @@ from django_rq.decorators import job
 
 from images.models import Image
 
-from scheduling.models import FetchableImage, FetchStatus
+from scheduling.models import FetchableImage, SchedulingError
+from scheduling.enums import FetchStatus
 from scheduling.utils import find_and_lock_image
 
 IMAGE_ENDPOINT = "https://collectionapi.metmuseum.org/public/collection/v1/objects/%s"
@@ -44,11 +45,8 @@ def find_images():
             return
     except Exception as e:
         logger.error(e)
-    if obj:
-        print(obj)
-        logger.info(obj)
     if next_image:
-        logger.warning(f"API response for {next_image} did not return an image")
+        SchedulingError.objects.create(fetchable_image=next_image, request_response=obj or "")
         next_image.status = FetchStatus.ERROR
         next_image.save(update_fields=['status'])
 
