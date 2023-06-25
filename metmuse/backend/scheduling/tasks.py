@@ -34,9 +34,10 @@ def find_images():
             image_temp_file.write(response.content)
             temp_file = files.File(image_temp_file, name=f"{uuid.uuid4()}.{file_type}")
             Image.objects.create(
-                file=temp_file, fetchable_image=next_image, url=obj.get('primaryImage'), name=obj.get('name'),
-                country=obj.get('country'), artistDisplayName=obj.get('artistDisplayName'),
-                artistNationality=obj.get('artistNationality'), region=obj.get('region'),
+                file=temp_file, fetchable_image=next_image, url=obj.get('primaryImage', ""), name=obj.get('title', ""),
+                country=obj.get('country', ""), artist_name=obj.get('artistDisplayName', ""),
+                artist_nationality=obj.get('artistNationality', ""), region=obj.get('region', ""),
+                start_date=obj.get("objectBeginDate", ""), end_date=obj.get("objectEndDate", "")
             )
             image_temp_file.flush()
             temp_file.flush()
