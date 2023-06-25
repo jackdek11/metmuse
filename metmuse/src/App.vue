@@ -63,7 +63,7 @@ export default {
           this.countDown = 10;
           this.countDownTimer();
         }
-      }, 600);
+      }, 1000);
     }
   },
   pauseTimer() {
