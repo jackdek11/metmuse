@@ -3,13 +3,13 @@ from django_rq.admin import QueueAdmin
 from django_rq.models import Queue
 from django.utils.html import mark_safe
 
-from scheduling.models import FetchableImages, FetchStatus
+from scheduling.models import FetchableImage, FetchStatus
 
 admin.site.register(Queue, QueueAdmin)
 
 
-@admin.register(FetchableImages)
-class FetchableImagesAdmin(admin.ModelAdmin):
+@admin.register(FetchableImage)
+class FetchableImageAdmin(admin.ModelAdmin):
     list_display = ('object_id', 'status', 'indicator')
 
     def indicator(self, obj):

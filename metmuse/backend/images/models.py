@@ -3,7 +3,7 @@ from django.db import models
 
 class Image(models.Model):
     file = models.FileField(null=True)
-    fetchable_image = models.OneToOneField('scheduling.FetchableImages', on_delete=models.CASCADE, primary_key=True)
+    fetchable_image = models.OneToOneField('scheduling.FetchableImage', on_delete=models.CASCADE, primary_key=True)
     url = models.URLField()
     name = models.TextField(blank=True, null=True)
     artistDisplayName = models.TextField(blank=True, null=True)
