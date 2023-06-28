@@ -1,6 +1,11 @@
 <template>
     <div class="start-session">
-        <button class="center-button" @click="startSession">Start Session</button>
+        <div class="clickable-area" @click="startSession">
+            <!-- Image and content here -->
+        </div>
+        <div class="girl-onlooking">
+            <!-- Image and content here -->
+        </div>
     </div>
 </template>
 
@@ -18,7 +23,6 @@ export default {
 
   methods: {
     startSession() {
-        console.log("here?")
         this.$emit('sessionStarted');
     }
   }
@@ -31,29 +35,41 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  background-image: url('../assets/startup.png');
   height: 100%;
-  background-color: #66999B;
+  background-color: #3b3939;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: fit;
   z-index: 9999;
 }
 
-.center-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  background-color: #ffffff; /* Set your desired button background color */
-  color: #000000; /* Set your desired button text color */
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+.clickable-area {
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Add transition properties */
+
 }
 
-.center-button:hover {
-  background-color: #394b4b; /* Set your desired hover background color */
-  color: #d8d8d8; /* Set your desired hover text color */
+.clickable-area::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: 37%;
+  bottom: 40%;
+}
+
+.girl-onlooking::before {
+  content: "";
+  position: absolute;
+  background-image: url('../assets/girl-2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-size: fit;
+  top: 40%;
+  left: 12%;
+  right: 67%;
+  bottom: 0%;
 }
 
 </style>
