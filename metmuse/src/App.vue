@@ -1,15 +1,29 @@
 <template>
   <div id="app">
-    <Slider />
+    <StartSession v-if="!started" @sessionStarted="handleSessionStarted"/>
+    <Slider v-if="started"/>
   </div>
 </template>
 
 <script>
 import Slider from "./components/Slider.vue";
+import StartSession from "./components/StartSession.vue";
+
 export default {
   name: "app",
   components: {
-    Slider
+    Slider,
+    StartSession
+  },
+  data() {
+    return {
+      started: false
+    }
+  },
+  methods: {
+    handleSessionStarted() {
+      this.started = true;
+    }
   }
 };
 </script>
