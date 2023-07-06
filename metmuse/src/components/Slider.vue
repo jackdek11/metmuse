@@ -2,7 +2,7 @@
     <div>
       <transition-group name="fade" tag="div">
         <div v-for="i in [currentIndex]" :key="i">
-          <img :src="currentImg.file" style="object-fit: cover; height: 100%;">
+          <img v-if="currentImg" :src="currentImg.url" style="object-fit: cover; height: 100%;">
         </div>
       </transition-group>
       <a class="prev" @click="prev" href="#">&#10094; Previous</a>
@@ -18,7 +18,8 @@
       return {
         timer: null,
         currentIndex: 0,
-        images: []
+        images: [],
+        page: 1
       };
     },
 
@@ -31,18 +32,12 @@
     async fillPhotos() {
       try{
         let pictures = await photosMixin.getPhotos(this.page);
-        this.images = pictures.data.results;
+        this.images = this.images.concat(pictures.data.results);
         this.currentImg = this.pictures[this.index];
         this.network_errors = 0;
       } catch (e) {
-        this.page = 1;
-        this.network_errors++;
-        if (this.network_errors < 3){
-          setTimeout(() => {
-            this.fillPhotos();
-        }, 600)
-
-        }
+        this.index = 0;
+        
       }
     },
       startSlide: function() {
@@ -57,9 +52,21 @@
       }
     },
   
+    watch: {
+      currentIndex(newValue) {
+        if (Math.abs(newValue) % this.images.length === 0){
+          this.page++;
+          this.fillPhotos();
+        }
+      },
+    },
+
     computed: {
       currentImg: function() {
-        return this.images[Math.abs(this.currentIndex) % this.images.length];
+        if (this.images.length){
+          return this.images[Math.abs(this.currentIndex) % this.images.length];
+        }
+        return null;
       }
     }
   };
