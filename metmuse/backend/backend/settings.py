@@ -15,7 +15,6 @@ from pathlib import Path
 try:
     PAGE_SIZE = int(os.getenv('PAGE_SIZE', default=10))
 except AttributeError:
-    print("Page size unreadable, using default of 10")
     PAGE_SIZE = 50
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
