@@ -37,7 +37,7 @@
         this.network_errors = 0;
       } catch (e) {
         this.index = 0;
-        
+        this.page = Math.max(1, this.page - 1);
       }
     },
       startSlide: function() {
