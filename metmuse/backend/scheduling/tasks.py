@@ -11,7 +11,7 @@ from images.models import Image
 
 from scheduling.models import FetchableImage, SchedulingError
 from scheduling.enums import FetchStatus
-from scheduling.utils import find_and_lock_image
+from scheduling.utils import find_and_lock_image, resize
 
 IMAGE_ENDPOINT = "https://collectionapi.metmuseum.org/public/collection/v1/objects/%s"
 
@@ -33,7 +33,7 @@ def find_images():
             image_temp_file = NamedTemporaryFile(delete=True)
             image_temp_file.write(response.content)
             temp_file = files.File(image_temp_file, name=f"{uuid.uuid4()}.{file_type}")
-            Image.objects.create(
+            new_image = Image.objects.create(
                 file=temp_file, fetchable_image=next_image, url=obj.get('primaryImage', ""), name=obj.get('title', ""),
                 country=obj.get('country', ""), artist_name=obj.get('artistDisplayName', ""),
                 artist_nationality=obj.get('artistNationality', ""), region=obj.get('region', ""),
@@ -43,6 +43,7 @@ def find_images():
             temp_file.flush()
             next_image.status = FetchStatus.FETCHED
             next_image.save(update_fields=['status'])
+            resize(path=new_image.file.path)
             return
     except Exception as e:
         logger.error(e)
