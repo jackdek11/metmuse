@@ -6,6 +6,7 @@ sqlparse==0.4.4
 typing_extensions==4.6.3
 django-cors-headers==4.1.0  # Used for BE API
 django-json-widget===1.1.1  # Used for virualizing scheduling error responses
+pillow===10.0.0
 psycopg2-binary==2.9.6  # Used for db connections
 requests~=2.31.0  # Used by RQ worker
 rq_scheduler==0.13.1  # Used by RQ Scheduler
