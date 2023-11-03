@@ -1,5 +1,5 @@
 asgiref==3.7.2
-Django==4.2.3
+Django==4.2.7
 django-rq==2.8.1
 djangorestframework==3.14.0
 sqlparse==0.4.4
