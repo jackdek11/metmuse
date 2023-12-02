@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import BaseHeader from './components/BaseHeader.vue'
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/login">Login</RouterLink>
       </nav>
     </div>
+    <BaseHeader></BaseHeader>
   </header>
   <body>
     <RouterView />
