@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import BaseHeader from './components/BaseHeader.vue'
 </script>
 
 <template>
-  <!-- <StartSession v-if="!started" @sessionStarted="handleSessionStarted" />
-    <Slider v-if="started" /> -->
   <header>
     <div class="wrapper">
       <nav>
@@ -14,7 +11,6 @@ import BaseHeader from './components/BaseHeader.vue'
         <RouterLink to="/login">Login</RouterLink>
       </nav>
     </div>
-    <BaseHeader></BaseHeader>
   </header>
   <body>
     <RouterView />
@@ -42,7 +38,7 @@ header {
 nav {
   width: 100%;
   font-size: 12px;
-  text-align: center;
+  text-align: right;
   margin-top: 2rem;
 }
 
@@ -87,8 +83,8 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
-    margin-left: -1rem;
+    text-align: right;
+    margin-right: -5rem;
     font-size: 1rem;
 
     padding: 1rem 0;
