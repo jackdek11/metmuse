@@ -1,11 +1,10 @@
 <template>
-    <div>
-        {{ picture }}
-    </div>
+  <div>
+    {{ picture }}
+  </div>
 </template>
 
 <script>
-
 export default {
   name: 'picture-detail',
 
@@ -14,7 +13,6 @@ export default {
       type: Object,
       default: null,
     },
-  }
-}
-
+  },
+};
 </script>

@@ -1,16 +1,15 @@
 <template>
-    <div class="start-session">
-        <div class="clickable-area" @click="startSession">
-            <!-- Image and content here -->
-        </div>
-        <div class="girl-onlooking">
-            <!-- Image and content here -->
-        </div>
+  <div class="start-session">
+    <div class="clickable-area" @click="startSession">
+      <!-- Image and content here -->
     </div>
+    <div class="girl-onlooking">
+      <!-- Image and content here -->
+    </div>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: 'StartSession',
 
@@ -23,11 +22,10 @@ export default {
 
   methods: {
     startSession() {
-        this.$emit('sessionStarted');
-    }
-  }
-}
-
+      this.$emit('sessionStarted');
+    },
+  },
+};
 </script>
 <style scoped>
 .start-session {
@@ -46,11 +44,10 @@ export default {
 
 .clickable-area {
   cursor: pointer;
-
 }
 
 .clickable-area::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 40%;
   left: 40%;
@@ -59,7 +56,7 @@ export default {
 }
 
 .girl-onlooking::before {
-  content: "";
+  content: '';
   position: absolute;
   background-image: url('../assets/girl-2.png');
   background-position: center;
@@ -71,5 +68,4 @@ export default {
   right: 67%;
   bottom: 0%;
 }
-
 </style>

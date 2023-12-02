@@ -1,36 +1,36 @@
 <template>
   <div id="app">
-    <StartSession v-if="!started" @sessionStarted="handleSessionStarted"/>
-    <Slider v-if="started"/>
+    <StartSession v-if="!started" @sessionStarted="handleSessionStarted" />
+    <Slider v-if="started" />
   </div>
 </template>
 
 <script>
-import Slider from "./components/Slider.vue";
-import StartSession from "./components/StartSession.vue";
+import Slider from './components/Slider.vue';
+import StartSession from './components/StartSession.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     Slider,
-    StartSession
+    StartSession,
   },
   data() {
     return {
-      started: false
-    }
+      started: false,
+    };
   },
   methods: {
     handleSessionStarted() {
       this.started = true;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
