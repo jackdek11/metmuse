@@ -11,8 +11,8 @@ export default {
   props: {
     picture: {
       type: Object,
-      default: null,
-    },
-  },
-};
+      default: null
+    }
+  }
+}
 </script>

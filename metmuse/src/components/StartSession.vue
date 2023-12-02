@@ -16,16 +16,16 @@ export default {
   props: {
     started: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   methods: {
     startSession() {
-      this.$emit('sessionStarted');
-    },
-  },
-};
+      this.$emit('sessionStarted')
+    }
+  }
+}
 </script>
 <style scoped>
 .start-session {

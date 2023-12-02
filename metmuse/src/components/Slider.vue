@@ -2,11 +2,7 @@
   <div>
     <transition-group name="fade" tag="div">
       <div v-for="i in [currentIndex]" :key="i">
-        <img
-          v-if="currentImg"
-          :src="currentImg.file"
-          style="object-fit: cover; height: 100%"
-        />
+        <img v-if="currentImg" :src="currentImg.file" style="object-fit: cover; height: 100%" />
       </div>
     </transition-group>
     <a class="prev" @click="prev" href="#">&#10094; Previous</a>
@@ -15,7 +11,7 @@
 </template>
 
 <script>
-import photosMixin from '@/mixins/calls';
+import photosMixin from '@/mixins/calls'
 export default {
   name: 'slider-component',
   data() {
@@ -23,57 +19,57 @@ export default {
       timer: null,
       currentIndex: 0,
       images: [],
-      page: 1,
-    };
+      page: 1
+    }
   },
 
   mounted: function () {
-    this.startSlide();
-    this.fillPhotos();
+    this.startSlide()
+    this.fillPhotos()
   },
 
   methods: {
     async fillPhotos() {
       try {
-        let pictures = await photosMixin.getPhotos(this.page);
-        this.images = this.images.concat(pictures.data.results);
-        this.currentImg = this.pictures[this.index];
-        this.network_errors = 0;
+        let pictures = await photosMixin.getPhotos(this.page)
+        this.images = this.images.concat(pictures.data.results)
+        this.currentImg = this.pictures[this.index]
+        this.network_errors = 0
       } catch (e) {
-        this.index = 0;
-        this.page = Math.max(1, this.page - 1);
+        this.index = 0
+        this.page = Math.max(1, this.page - 1)
       }
     },
     startSlide: function () {
-      this.timer = setInterval(this.next, 10000);
+      this.timer = setInterval(this.next, 10000)
     },
 
     next: function () {
-      this.currentIndex += 1;
+      this.currentIndex += 1
     },
     prev: function () {
-      this.currentIndex -= 1;
-    },
+      this.currentIndex -= 1
+    }
   },
 
   watch: {
     currentIndex(newValue) {
       if (Math.abs(newValue) % this.images.length === 0) {
-        this.page++;
-        this.fillPhotos();
+        this.page++
+        this.fillPhotos()
       }
-    },
+    }
   },
 
   computed: {
     currentImg: function () {
       if (this.images.length) {
-        return this.images[Math.abs(this.currentIndex) % this.images.length];
+        return this.images[Math.abs(this.currentIndex) % this.images.length]
       }
-      return null;
-    },
-  },
-};
+      return null
+    }
+  }
+}
 </script>
 <style>
 .fade-enter-active,

@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-      <!-- <StartSession v-if="!started" @sessionStarted="handleSessionStarted" />
+  <!-- <StartSession v-if="!started" @sessionStarted="handleSessionStarted" />
     <Slider v-if="started" /> -->
   <header>
-
     <div class="wrapper">
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -17,10 +14,10 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <body>
+    <RouterView />
+  </body>
 </template>
-
 
 <style scoped>
 #app {
@@ -75,7 +72,11 @@ nav a:first-of-type {
   .logo {
     margin: 0 2rem 0 0;
   }
-
+  header .hamburger {
+    color: aliceblue;
+    flex-wrap: wrap;
+    width: 100%;
+  }
   header .wrapper {
     display: flex;
     place-items: flex-start;
