@@ -10,11 +10,12 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="MET museum viewer" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
       </nav>
     </div>
   </header>
@@ -22,28 +23,6 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
-<script>
-// import Slider from './components/Slider.vue';
-// import StartSession from './components/StartSession.vue';
-
-// export default {
-//   name: 'app',
-//   components: {
-//     Slider,
-//     StartSession,
-//   },
-//   data() {
-//     return {
-//       started: false,
-//     };
-//   },
-//   methods: {
-//     handleSessionStarted() {
-//       this.started = true;
-//     },
-//   },
-// };
-</script>
 
 <style scoped>
 #app {
