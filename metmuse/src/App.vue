@@ -7,10 +7,8 @@ import HelloWorld from './components/HelloWorld.vue'
       <!-- <StartSession v-if="!started" @sessionStarted="handleSessionStarted" />
     <Slider v-if="started" /> -->
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="MET museum viewer" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -82,6 +80,7 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    width: 100%;
   }
 
   nav {
