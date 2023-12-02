@@ -1,118 +1,111 @@
 <template>
-  <div
-    id="burger"
-    :class="{
-      active: active
-    }"
-    @click="toggleActive"
-  >
-    <button type="button" class="burger-button" title="Menu">
-      <span class="burger-bar burger-bar--1"></span>
-      <span class="burger-bar burger-bar--2"></span>
-      <span class="burger-bar burger-bar--3"></span>
-    </button>
+  <div class="item" @click="openMenu">
+    <i>
+      <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512" fill="#9E9E9E">
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </i>
+    <div class="details">
+      <h3>
+        <slot name="heading"></slot>
+      </h3>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Burger',
-  props: {
-    active: {
-      type: Boolean,
-      required: true,
-      default: false
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  // type inference enabled
+
+
+  data() {
+    return {
+      open: false
     }
   },
   methods: {
-    toggleActive() {
-      this.$emit('toggle-menu')
+    openMenu() {
+      console.log("Test");
     }
   }
-}
+})
 </script>
 
-<style scoped lang="scss">
-$burger-color: #444;
-$primary: #2b2b68;
-.hidden {
-  visibility: hidden;
-}
-button {
-  cursor: pointer;
-} /* remove blue outline */
-button:focus {
-  outline: 0;
-}
-.burger-button {
+<style scoped>
+.item {
+  margin-top: 2rem;
+  display: flex;
   position: relative;
-  height: 30px;
-  width: 40px;
-  display: block;
-  z-index: 99;
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
-  pointer-events: all;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.burger-bar {
-  background-color: $burger-color;
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  left: 6px;
-  height: 3px;
-  width: auto;
-  margin-top: -1px;
-  transition:
-    transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-    background-color 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+.details {
+  flex: 1;
+  margin-left: 1rem;
 }
-.burger-bar--1 {
-  -webkit-transform: translateY(-6px);
-  transform: translateY(-6px);
-  top: 40%;
+
+i {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  place-items: center;
+  place-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-text);
 }
-.burger-bar--2 {
-  transform-origin: 100% 50%;
-  transform: scaleX(1);
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--color-heading);
 }
-.burger-button:hover .burger-bar--2 {
-  transform: scaleX(1);
-}
-.no-touchevents .burger-bar--2:hover {
-  transform: scaleX(1);
-}
-.burger-bar--3 {
-  transform: translateY(6px);
-  top: 60%;
-}
-#burger.active .burger-button {
-  transform: rotate(-180deg);
-}
-#burger.active .burger-bar {
-  background-color: lighten($primary, 10);
-}
-#burger.active .burger-bar--1 {
-  transform: rotate(45deg);
-  top: 50%;
-}
-#burger.active .burger-bar--2 {
-  opacity: 0;
-}
-#burger.active .burger-bar--3 {
-  transform: rotate(-45deg);
-  top: 50%;
-}
-@media screen and (max-width: 991px) {
-  #burger {
-    display: block;
+
+@media (min-width: 1024px) {
+  .item {
+    margin-top: 0;
+    padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
   }
-}
-@media screen and (min-width: 990px) {
-  #burger {
+
+  i {
+    top: calc(50% - 25px);
+    left: -26px;
+    position: absolute;
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .item:before {
+    content: ' ';
+    border-left: 1px solid var(--color-border);
+    position: absolute;
+    left: 0;
+    bottom: calc(50% + 25px);
+    height: calc(50% - 25px);
+  }
+
+  .item:after {
+    content: ' ';
+    border-left: 1px solid var(--color-border);
+    position: absolute;
+    left: 0;
+    top: calc(50% + 25px);
+    height: calc(50% - 25px);
+  }
+
+  .item:first-of-type:before {
+    display: none;
+  }
+
+  .item:last-of-type:after {
     display: none;
   }
 }
