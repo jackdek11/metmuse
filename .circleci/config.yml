@@ -1,0 +1,44 @@
+only-tags: &only-tags
+  filters:
+    tags:
+      only: /^.*/
+    branches:
+      ignore: /.*/
+
+version: 2.1
+
+jobs:
+  nightwatch-tests:
+    machine:
+      image: ubuntu-2204:2022.07.1
+    working_directory: ~/repo
+    resource_class: medium
+    steps:
+      - checkout
+      - run:
+          name: run nightwatch tests
+          command: |
+            cd ~/repo/metmuse/
+            npm i
+            sleep 2
+            npm run test:e2e -- --env chrome
+
+  unit-tests:
+    machine:
+      image: ubuntu-2204:2022.07.1
+    working_directory: ~/repo
+    resource_class: medium
+    steps:
+      - checkout
+      - run:
+          name: run unit tests
+          command: |
+            cd ~/repo/metmuse/
+            npm run test:unit
+
+workflows:
+  version: 2
+  untagged_build_test:
+    jobs:
+      - nightwatch-tests
+      - unit-tests
