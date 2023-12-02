@@ -2,14 +2,17 @@ import os
 from pathlib import Path
 
 
-def _safe_cast_to_int(var_name: str, default: int):
+def _safe_cast_to_int(var_name: str, default: int, min_value: int = None):
     try:
-        return int(os.getenv(var_name, default=default))
+        res = int(os.getenv(var_name, default=default))
     except AttributeError:
-        return default
+        res = default
+    if min_value and res < min_value:
+        raise AttributeError(f"{var_name} can not be set to less than {min_value}")
+    return res
 
 
-PAGE_SIZE = _safe_cast_to_int(var_name='PAGE_SIZE', default=25)
+PAGE_SIZE = _safe_cast_to_int(var_name='PAGE_SIZE', default=25, min_value=1)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -97,7 +100,7 @@ REST_FRAMEWORK = {
 }
 
 # System management
-MAX_MEDIA_VOL_SIZE_MB = _safe_cast_to_int(var_name='MAX_MEDIA_VOL_SIZE_MB', default=350)
+MAX_MEDIA_VOL_SIZE_MB = _safe_cast_to_int(var_name='MAX_MEDIA_VOL_SIZE_MB', default=350, min_value=20)
 
 # Redis and RQ workers
 REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
