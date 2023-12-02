@@ -17,3 +17,6 @@ export ADMIN_USERNAME=
 export ADMIN_PASSWORD=
 export ADMIN_EMAIL=
 ```
+
+---
+Requires at least 20mbs of storage space for images 
