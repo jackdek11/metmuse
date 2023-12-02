@@ -19,6 +19,7 @@
   position: relative;
 }
 
+
 .details {
   flex: 1;
   margin-left: 1rem;
@@ -26,11 +27,12 @@
 
 i {
   display: flex;
+  justify-content: center;
+  justify-items: center;
   place-items: center;
   place-content: center;
   width: 32px;
   height: 32px;
-
   color: var(--color-text);
 }
 
