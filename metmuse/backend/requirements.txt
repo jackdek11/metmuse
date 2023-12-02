@@ -1,12 +1,12 @@
 asgiref==3.7.2
-Django==4.2.3
+Django==4.2.7
 django-rq==2.8.1
 djangorestframework==3.14.0
 sqlparse==0.4.4
 typing_extensions==4.6.3
 django-cors-headers==4.1.0  # Used for BE API
 django-json-widget===1.1.1  # Used for virualizing scheduling error responses
-pillow===10.0.0
+pillow===10.0.1
 psycopg2-binary==2.9.6  # Used for db connections
 requests~=2.31.0  # Used by RQ worker
 rq_scheduler==0.13.1  # Used by RQ Scheduler
