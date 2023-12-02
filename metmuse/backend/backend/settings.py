@@ -1,10 +1,15 @@
 import os
 from pathlib import Path
 
-try:
-    PAGE_SIZE = int(os.getenv('PAGE_SIZE', default=10))
-except AttributeError:
-    PAGE_SIZE = 50
+
+def _safe_cast_to_int(var_name: str, default: int):
+    try:
+        return int(os.getenv(var_name, default=default))
+    except AttributeError:
+        return default
+
+
+PAGE_SIZE = _safe_cast_to_int(var_name='PAGE_SIZE', default=25)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -90,6 +95,9 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': PAGE_SIZE,
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+# System management
+MAX_MEDIA_VOL_SIZE_MB = _safe_cast_to_int(var_name='MAX_MEDIA_VOL_SIZE_MB', default=350)
 
 # Redis and RQ workers
 REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
