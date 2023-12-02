@@ -2,6 +2,7 @@ import requests
 import json
 import uuid
 import logging
+import typing
 
 from django.core.files.temp import NamedTemporaryFile
 from django.core import files
@@ -22,11 +23,11 @@ logger = logging.getLogger('default')
 def find_images():
     obj, next_image = None, None
     try:
-        next_image: FetchableImage = find_and_lock_image()
+        next_image: typing.Optional[FetchableImage] = find_and_lock_image()
         if not next_image:
             logger.warning("No more images available")
             return
-        obj = json.loads(requests.get(IMAGE_ENDPOINT % next_image.object_id).text)
+        obj: typing.Optional[dict] = json.loads(requests.get(IMAGE_ENDPOINT % next_image.object_id).text)
         if obj.get('primaryImage'):
             response = requests.get(obj.get('primaryImage'), allow_redirects=True, stream=True)
             file_type = response.headers.get('Content-Type', default='image/jpeg').split('/')[-1].lower().strip()
@@ -44,7 +45,6 @@ def find_images():
             next_image.status = FetchStatus.FETCHED
             next_image.save(update_fields=['status'])
             resize(path=new_image.file.path)
-            return
     except Exception as e:
         logger.error(e)
     if next_image:
