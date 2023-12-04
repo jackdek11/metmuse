@@ -20,7 +20,7 @@ export default {
       userDetails: null
     }
   },
-  name: 'YourComponent',
+  name: 'Login',
   methods: {
     login() {
       googleSdkLoaded((google) => {

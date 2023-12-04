@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
   <body>
-    <RouterView />
+    <RouterView class="container"/>
   </body>
 </template>
 
@@ -30,6 +30,13 @@ header {
   max-height: 100vh;
 }
 
+.container {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
 .logo {
   display: block;
   margin: 0 auto 2rem;
