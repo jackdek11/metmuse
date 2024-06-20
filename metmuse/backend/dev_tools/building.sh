@@ -6,9 +6,11 @@
 # **************************************************************
 #
 
+# shellcheck disable=SC2164
 cd ../../../quickstart/
 docker-compose down --remove-orphans
 docker-compose up -d db redis
+# shellcheck disable=SC2164
 cd ../metmuse/backend/
 sleep 8
 python3 manage.py migrate

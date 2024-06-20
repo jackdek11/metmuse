@@ -2,7 +2,7 @@
   <div>
     <transition-group name="fade" tag="div">
       <div v-for="i in [currentIndex]" :key="i">
-        <img v-if="currentImg" :src="currentImg.file" style="object-fit: cover; height: 100%" />
+        <img v-if="currentImg" :src="currentImg.file" style="object-fit: cover; height: 100%"/>
       </div>
     </transition-group>
     <a class="prev" @click="prev" href="#">&#10094; Previous</a>
@@ -12,6 +12,7 @@
 
 <script>
 import photosMixin from '@/mixins/calls'
+
 export default {
   name: 'slider-component',
   data() {
